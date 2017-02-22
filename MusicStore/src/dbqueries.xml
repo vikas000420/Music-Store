@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+	<gCategory>
+		<id>1</id>
+		<query>describe CD category;</query>
+	</gCategory>
+	<gCategory>
+		<id>2</id>
+		<query>select * from musicstore.cd where category = ?;</query>
+	</gCategory>
+	<gCategory>
+		<id>3</id>
+		<query>SELECT * FROM musicstore.cd where cdid = ?;</query>
+	</gCategory>
+	<gAccount>
+		<id>1</id>
+		<query>SELECT Firstname,Lastname,Username,Pswrd,Email,address_id FROM
+			musicstore.accounts where Username = ? and Pswrd = ? ;</query>
+	</gAccount>
+	<gAccount>
+		<id>2</id>
+		<query>INSERT INTO musicstore.accounts
+			(Firstname,Lastname,Username,Pswrd,Email)VALUES(?,?,?,?,?);
+		</query>
+	</gAccount>
+	<gAccount>
+		<id>3</id>
+		<query>UPDATE musicstore.accounts SET address_id= ? WHERE Username = ?;</query>
+	</gAccount>
+	<gAccount>
+		<id>4</id>
+		<query>SELECT Firstname,Lastname,Username,Pswrd,Email,address_id FROM
+			musicstore.accounts where Username = ? ;</query>
+	</gAccount>
+	<gPO>
+		<id>1</id>
+		<query>INSERT INTO musicstore.po (lname,fname,status,address)VALUES
+			(?,?,?,?);</query>
+	</gPO>
+	<gPO>
+		<id>2</id>
+		<query>Update musicstore.po SET status = ? where status = 'PROCESSED'
+			and address = ?;</query>
+	</gPO>
+	<gPO>
+		<id>3</id>
+		<query>SELECT count(*) as count FROM musicstore.po;</query>
+	</gPO>
+	<gVisitEvent>
+		<id>1</id>
+		<query>select * from visitevent;</query>
+	</gVisitEvent>
+	<gPoItem>
+		<id>1</id>
+		<query>INSERT INTO musicstore.poitem (id,cdid,price)VALUES(?,?,?);
+		</query>
+	</gPoItem>
+	<gAddress>
+		<id>1</id>
+		<query>SELECT * FROM musicstore.address where id = ?;</query>
+	</gAddress>
+	<gAddress>
+		<id>2</id>
+		<query>INSERT INTO musicstore.address
+			(street,city,province,country,zip,phone)VALUES(?,?,?,?,?,?);</query>
+	</gAddress>
+	<gAddress>
+		<id>3</id>
+		<query>SELECT LAST_INSERT_ID() as LastAddressId;</query>
+	</gAddress>
+	<gAddress>
+		<id>4</id>
+		<query>SELECT * FROM musicstore.address where id = (select address_id
+			from musicstore.accounts where Username = ?);</query>
+	</gAddress>
+</queries>

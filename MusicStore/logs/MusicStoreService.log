@@ -1,0 +1,15 @@
+2015-10-28 22:01:11,256 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2015-10-28 22:01:11,279 - com.musicstore.model.dao.CDs.AccountManagerDAOImpl - ERROR - get user by user name: pachava
+2015-10-28 22:01:56,360 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2015-10-28 22:02:10,846 - com.musicstore.model.dao.CDs.AccountManagerDAOImpl - ERROR - get user by user name: pachava
+2015-10-28 22:02:59,821 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2015-10-28 22:02:59,821 - com.musicstore.model.dao.CDs.AccountManagerDAOImpl - INFO - get user by user name: pachava
+2015-10-28 22:03:46,263 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2015-10-28 22:03:57,766 - com.musicstore.model.dao.CDs.AccountManagerDAOImpl - INFO - get user by user name: pachava
+2015-10-28 22:04:59,716 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2015-10-28 22:05:03,552 - com.musicstore.model.dao.CDs.AccountManagerDAOImpl - INFO - get user by user name: pachava
+2015-10-28 22:06:04,950 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2015-10-28 22:06:11,718 - com.musicstore.model.dao.CDs.AccountManagerDAOImpl - INFO - get user by user name: pachava
+2015-10-28 22:08:02,315 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+2015-10-28 22:08:12,713 - com.musicstore.model.dao.CDs.AccountManagerDAOImpl - INFO - get user by user name: pachava
+2015-10-28 22:08:36,476 - com.musicstore.model.dao.CDs.DBAgent - ERROR - Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial

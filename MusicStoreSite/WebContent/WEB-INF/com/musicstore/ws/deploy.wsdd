@@ -1,0 +1,97 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from OrderServiceImplService WSDL service -->
+
+  <service name="OrderServiceImplPort" provider="java:RPC" style="rpc" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.musicstore.com/"/>
+      <parameter name="wsdlServiceElement" value="OrderServiceImplService"/>
+      <parameter name="schemaUnqualified" value="http://ws.musicstore.com/"/>
+      <parameter name="wsdlServicePort" value="OrderServiceImplPort"/>
+      <parameter name="className" value="com.musicstore.ws.OrderServiceImplPortBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="OrderService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:visitevent"
+        type="java:com.musicstore.ws.Visitevent"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:account"
+        type="java:com.musicstore.ws.Account"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:poitem"
+        type="java:com.musicstore.ws.Poitem"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:po"
+        type="java:com.musicstore.ws.Po"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:creditCardDetails"
+        type="java:com.musicstore.ws.CreditCardDetails"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:poitemPK"
+        type="java:com.musicstore.ws.PoitemPK"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:address"
+        type="java:com.musicstore.ws.Address"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:cd"
+        type="java:com.musicstore.ws.Cd"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://ws.musicstore.com/"
+        qname="ns:products"
+        type="java:com.musicstore.ws.Cd[]"
+        innerType="cmp-ns:cd" xmlns:cmp-ns="http://ws.musicstore.com/"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

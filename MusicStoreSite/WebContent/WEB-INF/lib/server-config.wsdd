@@ -1,0 +1,90 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value=""/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="OrderServiceImplPort" provider="java:RPC" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="wsdlPortType" value="OrderService"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlServicePort" value="OrderServiceImplPort"/>
+  <ns1:parameter name="className" value="com.musicstore.ws.OrderServiceImplPortBindingSkeleton"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ws.musicstore.com/"/>
+  <ns1:parameter name="wsdlServiceElement" value="OrderServiceImplService"/>
+  <ns1:parameter name="schemaUnqualified" value="http://ws.musicstore.com/"/>
+  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns1:visitevent" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Visitevent" xmlns:ns1="http://ws.musicstore.com/" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:account" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Account" xmlns:ns2="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:poitem" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Poitem" xmlns:ns3="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:po" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Po" xmlns:ns4="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns5:creditCardDetails" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.CreditCardDetails" xmlns:ns5="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns6:poitemPK" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.PoitemPK" xmlns:ns6="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:address" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Address" xmlns:ns7="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:cd" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Cd" xmlns:ns8="http://ws.musicstore.com/"/>
+  <ns1:arrayMapping innerType="ns9:cd" languageSpecificType="java:com.musicstore.ws.Cd[]" qname="ns9:products" xmlns:ns9="http://ws.musicstore.com/"/>
+ </ns1:service>
+ <ns1:service name="CDCatalogServiceImplPort" provider="java:RPC" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="CDCatalogService"/>
+  <ns1:parameter name="className" value="com.musicstore.ws.CDCatalogServiceImplPortBindingSkeleton"/>
+  <ns1:parameter name="wsdlServicePort" value="CDCatalogServiceImplPort"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://ws.musicstore.com/"/>
+  <ns1:parameter name="wsdlServiceElement" value="CDCatalogServiceImplService"/>
+  <ns1:parameter name="schemaUnqualified" value="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:visitevent" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Visitevent" xmlns:ns10="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:poitem" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Poitem" xmlns:ns11="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:account" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Account" xmlns:ns12="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns13:po" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Po" xmlns:ns13="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns14:poitemPK" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.PoitemPK" xmlns:ns14="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns15:address" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Address" xmlns:ns15="http://ws.musicstore.com/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns16:cd" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:com.musicstore.ws.Cd" xmlns:ns16="http://ws.musicstore.com/"/>
+  <ns1:arrayMapping innerType="xsd:string" languageSpecificType="java:java.lang.String[]" qname="ns17:categories" xmlns:ns17="http://ws.musicstore.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:arrayMapping innerType="ns18:cd" languageSpecificType="java:com.musicstore.ws.Cd[]" qname="ns18:products" xmlns:ns18="http://ws.musicstore.com/"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>
